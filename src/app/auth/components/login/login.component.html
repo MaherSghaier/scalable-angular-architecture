@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-center login-container">
+
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit($event, loginForm.value)">
+    <img class="mb-4" src="/assets/images/logo.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">{{ 'Auth.Login.Title' | translate }}</h1>
+
+    <div *ngIf="submitted && email.hasError('required')" class="alert alert-danger">{{ 'Auth.EmailRequiredError' | translate }}</div>
+    <div *ngIf="submitted && !email.hasError('required') && email.hasError('validateEmail')" class="alert alert-danger">{{ 'Auth.EmailFormatError' | translate }}</div>
+    <div *ngIf="submitted && password.hasError('required')" class="alert alert-danger">{{ 'Auth.PasswordRequiredError' | translate }}</div>
+
+    <label for="inputEmail" class="sr-only">{{ 'Auth.Email' | translate }}</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="{{ 'Auth.Email' | translate }}" autofocus="" [formControl]="email">
+    <label for="inputPassword" class="sr-only">{{ 'Auth.Password' | translate }}</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="{{ 'Auth.Password' | translate  }}" [formControl]="password">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'Auth.Login.Submit' | translate }}</button>
+    <a routerLink="/register" routerLinkActive="active" class="">{{ 'Auth.Login.RegisterLink' | translate }}</a>
+    <!-- <spinner [isRunning]="authSandbox.loginLoading$ | async"></spinner> -->
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+  </form>
+</div>
