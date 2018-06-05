@@ -1,0 +1,33 @@
+{
+  "api": {
+    "baseUrl": "/api"
+  },
+
+  "paths": {
+    "imagesRoot": "/assets/images/",
+    "userImageFolder": "/assets/images/users/"
+  },
+
+  "localization": {
+    "languages": [{
+      "code": "en",
+      "name": "EN",
+      "culture": "en-EN"
+    }],
+    "defaultLanguage": "en"
+  },
+
+  "notifications": {
+    "options": {
+      "timeOut": 5000,
+      "showProgressBar": true,
+      "pauseOnHover": true,
+      "position": ["top", "right"],
+      "theClass": "sy-notification"
+    },
+    "unauthorizedEndpoints": ["api/posts"],
+    "notFoundEndpoints": ["api/posts", "api/account/login", "api/account/register"]
+  },
+
+  "debugging": true
+}

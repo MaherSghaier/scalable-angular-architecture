@@ -1,0 +1,16 @@
+<h1>List of articles
+  <small>({{posts.length}})</small>
+  <a class="btn btn-sm btn-primary" routerLink="./add">
+    <i class="fa fa-plus"></i> Add new post</a>
+</h1>
+<div *ngFor="let post of posts">
+  <h3>{{post?.title}}</h3>
+  <p>{{post?.body | truncate : [100]}}
+    <a routerLink="./{{post?.id}}">read more
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </p>
+  <p>
+    <small>Created by {{post?.author}} at {{post?.createdAt}}</small>
+  </p>
+</div>
